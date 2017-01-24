@@ -36,6 +36,9 @@ app.get('/:path', function(req, res) {
 
   if (unixReg.test(inputString) ) {
     var unixString = parseInt(inputString);
+    if (unixString.length >13) {
+      returnNull();
+    }
     res.json({'unix': unixString, 'natural': convertDate(unixString)});
   }
 
